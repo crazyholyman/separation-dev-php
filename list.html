@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+    <div class="header container">
+        list.html
+    </div>
+    <div class="filter container">
+        <div class="cate clearfix">
+            <span>category :</span>
+            <ul>
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+        <div class="promote clearfix">
+            <span>promotion :</span>
+            <ul>
+                <li data-promote="2" class="active">All</li>
+                <li data-promote="0">cold</li>
+                <li data-promote="1">hot</li>
+            </ul>
+        </div>
+        <div class="sort clearfix">
+            <span>sort :</span>
+            <ul>
+                <li data-sorttype="0" data-sort="ASC" class="active">colligate</li>
+                <li data-sorttype="1" data-sort="ASC">price</li>
+                <li data-sorttype="2" data-sort="ASC">sales</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container pagi clearfix">
+
+    </div>
+    <div class="container wares">
+        <ul class="clearfix"></ul>
+    </div>
+    <div class="footer container">footer</div>
+    <div class="loading">
+        <div class="img">
+            <img src="images/loading.gif" alt="">
+        </div>
+    </div>
+    <!--模板引擎-->
+    <script type="text/html" id="waresTemp">
+        {{each list value}}
+        <li>
+            <a href="detail.html?goodId={{value.goods_id}}">
+                <div class="img">
+                    <img src="{{value.goods_big_logo}}" alt="">
+                </div>
+                <div class="price">
+                    <span>$ {{value.goods_price}}</span>
+                </div>
+                <div class="desc">
+                    {{value.goods_name}}
+                </div>
+                <div class="number">
+                    sales: {{value.goods_number}}
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </script>
+    <script src="lib/pagination.js"></script>
+    <script src="js/list.js"></script>
+    <script src="lib/template-web.js"></script>
+    
+</body>
+</html>
